@@ -414,6 +414,25 @@ footer {
     margin-top: auto;
 }
 
+.footer-links {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.footer-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+    text-shadow: 0 0 5px var(--primary-glow);
+}
+
 /* --- Mobile Responsiveness --- */
 @media (max-width: 600px) {
     #app {

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - PhantomHide</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300ff41' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M2 12h4l3-9 5 18 3-9h5'/></svg>">
+    <meta name="robots" content="index, follow">
+
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-3788374704176398">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3788374704176398" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .legal-content {
+            font-family: var(--font-ui);
+            line-height: 1.6;
+            color: var(--text-main);
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .legal-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+        .contact-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(0, 255, 65, 0.1), transparent);
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 1rem 2rem;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .contact-btn:hover {
+            background: var(--primary-color);
+            color: var(--bg-color);
+            box-shadow: 0 0 20px var(--primary-glow);
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <span class="glitch" data-text="PHANTOMHIDE">PHANTOMHIDE</span>
+                </a>
+            </div>
+            <nav>
+                <button onclick="window.location.href='index.html'">HOME</button>
+            </nav>
+        </header>
+
+        <main>
+            <section class="active-section">
+                <div class="panel">
+                    <h2><span class="icon">▼</span> SECURE COMMS (CONTACT US)</h2>
+                    <div class="legal-content">
+                        <p>If you have any questions, bug reports, or business inquiries regarding PhantomHide, please reach out to our team securely via email.</p>
+                        <a href="mailto:contact@phantomhide.com" class="contact-btn">INITIATE TRANSMISSION</a>
+                        <p style="margin-top: 2rem; font-size: 0.8rem; color: var(--text-muted);">Please do not send encrypted payloads or sensitive steganography images via email.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>PHANTOM SECURE PROTOCOL v2.5.4 | END-TO-END AES-256 ENCRYPTION</p>
+            <div class="footer-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
