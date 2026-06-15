@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: phantom-hide
+    env: static
+    buildCommand: ""
+    staticPublishPath: ./
