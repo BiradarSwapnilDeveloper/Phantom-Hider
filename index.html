@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhantomHide - Secure Steganography</title>
+    
+    <!-- Custom Engaging Logo (Favicon) - Cyber Hacker Pulse -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300ff41' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M2 12h4l3-9 5 18 3-9h5'/></svg>">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="PhantomHide is an advanced, military-grade steganography tool featuring dual-lock plausible deniability and AES-256 encryption. Hide secret messages securely within images.">
+    <meta name="keywords" content="steganography, secure steganography, hide message in image, AES encryption, dual lock, plausible deniability, hacker tool, cyber security, phantomhide">
+    <meta name="author" content="Phantom Protocol">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="PhantomHide - Secure Steganography">
+    <meta property="og:description" content="Military-grade steganography tool with dual-lock plausible deniability. Hide your secrets.">
+    <meta property="og:image" content="https://phantomhide.com/banner.jpg">
+    <meta property="og:url" content="https://phantomhide.com">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Google Analytics (Placeholder) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <!-- Google AdSense (Placeholder) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- CryptoJS for AES Encryption -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div class="logo">
+                <span class="glitch" data-text="PHANTOMHIDE">PHANTOMHIDE</span>
+            </div>
+            <nav>
+                <button id="btn-encode" class="active">ENCODE</button>
+                <button id="btn-decode">DECODE</button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Encode Section -->
+            <section id="section-encode" class="active-section">
+                <div class="panel">
+                    <h2><span class="icon">▼</span> INITIALIZE PAYLOAD</h2>
+                    
+                    <div class="upload-zone" id="upload-zone-encode">
+                        <input type="file" id="file-encode" accept="image/png, image/bmp">
+                        <p>DRAG & DROP IMAGE OR CLICK TO BROWSE</p>
+                        <span class="support-text">Supported: PNG, BMP (Lossless only)</span>
+                        <canvas id="canvas-encode" style="display:none;"></canvas>
+                        <img id="preview-encode" style="display:none;" />
+                    </div>
+
+                    <div class="input-group">
+                        <label>SECRET MESSAGE</label>
+                        <textarea id="real-message" placeholder="Enter highly classified text..."></textarea>
+                    </div>
+
+                    <div class="input-group">
+                        <label>REAL PASSWORD <span class="tooltip" title="Used to decrypt the real message">?</span></label>
+                        <input type="password" id="real-password" placeholder="••••••••••••">
+                    </div>
+
+                    <div class="divider"><span>PLAUSIBLE DENIABILITY (DUAL-LOCK)</span></div>
+
+                    <div class="input-group">
+                        <label>DECOY MESSAGE <span class="tooltip" title="This message will be shown if the duress password is used.">?</span></label>
+                        <textarea id="fake-message" placeholder="Enter harmless text (e.g., 'Groceries: Milk, Eggs')"></textarea>
+                    </div>
+
+                    <div class="input-group">
+                        <label>DURESS PASSWORD <span class="tooltip" title="Give this password if forced. It reveals only the decoy message.">?</span></label>
+                        <input type="password" id="fake-password" placeholder="••••••••••••">
+                    </div>
+
+                    <button id="action-encode" class="btn-primary" disabled>EMBED DATA</button>
+                    
+                    <div class="status-bar" id="encode-status">AWAITING IMAGE UPLOAD...</div>
+                    <div id="download-container" style="display:none;">
+                        <a id="download-link" download="phantom_secure.png" class="btn-secondary">DOWNLOAD SECURE IMAGE</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Decode Section -->
+            <section id="section-decode">
+                <div class="panel">
+                    <h2><span class="icon">▲</span> EXTRACT PAYLOAD</h2>
+                    
+                    <div class="upload-zone" id="upload-zone-decode">
+                        <input type="file" id="file-decode" accept="image/png, image/bmp">
+                        <p>DRAG & DROP SECURE IMAGE OR CLICK TO BROWSE</p>
+                        <canvas id="canvas-decode" style="display:none;"></canvas>
+                        <img id="preview-decode" style="display:none;" />
+                    </div>
+
+                    <div class="input-group">
+                        <label>ACCESS KEY</label>
+                        <input type="password" id="decode-password" placeholder="Enter password to decrypt">
+                    </div>
+
+                    <button id="action-decode" class="btn-primary" disabled>DECRYPT IMAGE</button>
+
+                    <div class="status-bar" id="decode-status">AWAITING SECURE IMAGE...</div>
+
+                    <div class="output-group" id="output-container" style="display:none;">
+                        <label>DECRYPTED MESSAGE</label>
+                        <div id="decrypted-output" class="terminal-output"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>PHANTOM SECURE PROTOCOL v2.5.4 | END-TO-END AES-256 ENCRYPTION</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="crypto.js"></script>
+    <script src="steganography.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
